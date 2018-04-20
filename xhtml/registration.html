@@ -1,0 +1,289 @@
+<?php
+	$fname = $lname = $email = $phone = $uname = $pwd = $cpwd = $err = "";
+	$fn_regex = "/^[a-zA-Z'!-]{2,35}$/";
+	$ln_regex = "/^[a-zA-Z'!-]{2,35}$/";
+	$em_regex = "/^[a-zA-Z0-9._]{2,32}@[a-zA-Z0-9.]{3,20}.[a-zA-Z]{2,3}$/";
+	$ph_regex = "/^[0123456789]{7,14}$/";
+	$us_regex = "/^[a-zA-Z0-9_-]{2,35}$/";
+	$pw_regex = "/^[a-zA-Z0-9!#%()_-]{6,15}$/";
+	$valid = true;
+	
+	$server = 'localhost';
+	$user = 'root';
+	$pass = '';
+	$dbase = 'PHOTOSHARE';
+	
+	if($_SERVER("REQUEST_METHOD")=="POST" && !empty($_POST["submit"])){
+		
+		if(empty($_POST['fname'])){
+			$err = "First Name is required";
+			$valid = false;
+		} else {
+			$fname = clean_input($_POST['fname']);
+			if(!preg_match($fn_regex,$fname)){
+				$err = "Please ensure your First Name only contains the following characters: A-z!'-";
+				$fname = "";
+				$valid = false;
+			}
+			
+		}
+		if(empty($_POST['lname'])){
+			$err = "Last Name is required";
+			$valid = false;
+		} else {
+			$lname = clean_input($_POST['lname']);
+		
+		if(!preg_match($ln_regex,$lname)){
+			$err = "Please ensure your Last Name only contains the following characters: A-z!'-";
+			$lname = "";
+			$valid = false;
+		}
+		}
+		if(empty($_POST['email'])){
+			$err = "Email is required";
+			$valid = false;
+		} else {
+			$email = clean_input($_POST['email']);
+		
+		if(!preg_match($em_regex,$email)){
+			$err = "Please ensure your email is in the format: name@yourdomain.com";
+			$email = "";
+			$valid = false;
+		}
+		}
+		if(empty($_POST['phone'])){
+			$err = "Phone number is required";
+			$valid = false;
+		} else {
+			$phone = clean_input($_POST['phone']);
+		
+		if(!preg_match($ph_regex,$phone)){
+			$err = "Please ensure your phone number is in the format: xxxxxxxxxx";
+			$phone = "";
+			$valid = false;
+		}
+		}
+		if(empty($_POST['uname'])){
+			$err = "Username is required";
+			$valid = false;
+		} else {
+			$uname = clean_input($_POST['uname']);
+		
+		if(!preg_match($us_regex,$uname)){
+			$err = "Please ensure your Username only contains the following characters: A-z0-9_-";
+			$uname = "";
+			$valid = false;
+		}
+		}
+		if(empty($_POST['pwd'])){
+			$err = "Password is required";
+			$valid = false;
+		} else {
+			$pwd = trim($_POST['uname']);
+		
+		if(!preg_match($pw_regex,$pwd)){
+			$err = "Please ensure your Password is at least 6 characters long and only contains the following characters: A-z0-9!#%()_-";
+			$pwd = "";
+			$valid = false;
+		}
+		}
+		if(empty($_POST['cpwd'])){
+			$err = "Please comfirm the password entered";
+			$valid = false;
+		} else {
+			$cpwd = trim($_POST['cpwd']);
+			
+			if($pwd != $cpw){
+			$err = "The password you entered does not match.";
+			$valid = false;
+			}
+		}
+		
+	}
+	if($valid){
+		$conn = mysqli_connect($server, $user, $pass, $dbase);
+		
+		if(!$conn){
+		die('Could not connect to database because '.mysqli_connect_error()).'<br /><br />';
+		} else {
+			echo "You are successfully connected to $dbase.";
+		}
+		
+		$qry = "INSERT INTO USERS(fname, lname, email, phone, uname, pwd) VALUES ('$fname', '$lname', '$email', '$phone', '$uname');";
+		
+		$publish = mysqli_query($conn,$qry);
+		
+		if($publish){
+			echo "User was successfully created.<br /><br />"
+		} else {
+			echo "An error has occured: ".mysqli_error($conn)."<br /><br />";
+		}
+		
+		
+	}
+	
+	function clean_input($data){
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoShare</title>
+    <link rel="stylesheet" type="text/css" href="../css/Style.css" />
+	<meta charset="UTF-8">
+</head>
+    
+<body onload="RUN()" onclick="hideme()">
+    
+	<div id="main-container">
+		
+		<!--Banner container for logo-->
+		<div id="top-banner-left">
+			<div id="banner-left">
+				<a href="../index.html"><img id="logoImg" src="../images/logo2.png" alt="logo"/></a>
+			</div>
+		</div>
+		<!--Ends logo container-->
+		
+		<!--Banner contains red double horizontal lines-->
+		<div id="top-banner-left2"></div>
+		<!--Ends red horizontal lines container-->
+		
+		<!--Banner container for navigation bar-->
+		<div id="top-banner-middle">
+			<div id="banner-right"></div>
+			<ul id="nav-options">
+				<li class="t"><a class="navlinks" href="../index.html" >Home</a></li>
+				<li class="t"><a class="navlinks " href="gallery.html">Gallery</a></li>
+				<li class="t"><a class="navlinks " href="contactus.html">Contact Us</a></li>
+			</ul>
+			<div id="search-link" onclick="search_form()"></div>
+		</div>
+		<!--Ends navigation bar container-->
+		
+		<!--Banner container for login link-->		
+		<div id="top-banner-right">
+			<div id="banner-far-right" ></div>
+			<ul id="nav-login">
+				<li id="login" onclick="loginform()"><a class="navlinks" onclick="loginform()"><img src="../images/lock.png" alt="Login" class="nav-img" />&nbsp;Login</a></li>
+			</ul>
+		</div>
+        <!--Ends login container-->
+        
+					
+		<!--Container for page content-->
+        <div id="body">
+			<!--Slideshow container-->
+            <div id="reghead-container">
+			
+				<div id="login-form-container" onmouseenter="opacityplus()" onclick="formfocus()">
+					<form method="POST" id="Logon" name="Logon" onsubmit="return validateLogin()">
+						<input type="text" placeholder="Username" name="username" id="username" size="25" maxlength="20" class="username"/><br />
+						<input type="password" placeholder="Password" name="password" id="password" size="25" maxlength="12" class="password" /><br />
+						<button class="login_button" type="submit" title=" " id="loginbtn">Log On</button><br />
+						<a href="xhtml/registration.html" id="reglink"><span class="login_button" id="registerbtn">Register</span></a>
+					</form>
+					<p class="forgot-sign-in"> <a href="#" class="forgot-id">Forgot ID&nbsp;|&nbsp;Password</a></p>
+              	</div>
+				
+				<div id="search-container" onmouseenter="opacityplus()" onclick="formfocus()">
+					<form method="POST" id="searchform" name="searchform">
+						<input type="text" placeholder="How can we help you?" name="search" id="search" size="25" maxlength="20" class="username"/>&nbsp;
+						<button type="button" title=" " id="searchbtn">Search</button>
+					</form>
+				</div>
+				
+				<div id="reghead">
+					<h3>"Photography is a way of feeling, of touching, of loving. What you have caught on film is captured forever. It remembers little things, long after you have forgotten everything."</h3>
+					<cite>- Aaron Siskind</cite>
+				</div>
+																															
+            </div>
+			<!--Ends Slide Container-->
+			<!--Modal code learned from https://www.w3schools.com/howto/howto_css_modals.asp*/-->
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close" onclick="closemodal()">&times;</span>
+					<p id="login_err"></p>
+				</div>
+
+			</div>
+			
+			<!--Body text container-->
+			<div id="body-text">
+							
+				<div class="topic-container">
+					<div class="left-topic"><img src="../images/lefttopic.png" alt="banner" class="topicimg" /></div>
+					<div class="topic"><h1 class="topic-heading">Registration</h1></div>
+					<div class="right-topic"><img src="../images/righttopic.png" alt="banner" class="topicimg" /></div>
+				</div>
+				<!--Ends Gallery Topic-->
+				
+				<div class="contactus-text">
+														
+					<div id="contact-left">
+						
+						<form id="reg_form" name="reg_form" action="thankyou.html" onsubmit="return validateReg();">	
+							<fieldset id="personalInfoFS">
+								<legend> Personal Information </legend>
+								<label for="fname">First Name:</label>&emsp;
+								<input type="text" name="fname" id="fname"/><br /><br />
+								<label for="lname">Last Name:</label>&emsp;
+								<input type="text" name="lname" id="lname"/> <br /><br />
+								<label for="email">Email:</label>&emsp;&emsp;&emsp;
+								<input type="text" name="email" id="email"/> <br /><br />
+								<label for="phone">Phone:</label>&emsp;&emsp;&emsp;
+								<input type="text" name="phone" id="phone"/> <br /><br />
+							</fieldset>
+							<fieldset id="basicInfoFS">
+								<legend> Basic Information </legend>
+								<label for="uname">Username:</label>&emsp;
+								<input type="text" name="uname" id="uname" /><br /><br />
+								<label for="pwd">Password:</label>&emsp;
+								<input type="password" name="pwd" id="pwd" onkeyup="check_pwd()" /> <br /><br />
+								<label for="cpwd">Confirm Password:</label>&emsp;
+								<input type="password" name="cpwd" id="cpwd" onkeyup="check_pwd()" /> <br /><br />
+							</fieldset><br />
+							<input type="submit" name="submit" value="Submit">
+							
+						</form>
+					
+					</div>
+					
+					<div id="contact-right">
+						<p id="err"><?php echo $err;?></p>
+              		</div>
+			
+					<div id="reg-body-footer"></div>
+				</div>
+				<!--Ends Contact Us Text-->
+				
+			</div>
+			<!--Ends Body Text Container-->
+		</div>
+		<!--Ends page content container-->             
+        
+		
+        
+        
+    </div>
+	<!--Ends Main Container-->
+	<!--Footer Container-->
+    <div id="footer">
+        <span id="footer-text-left">Copyright &#169; 2018 PhotoShare Inc. All rights reserved.</span><span id="footer-text-right"><a href="../index.html">Home</a>&nbsp;|&nbsp;<a href="gallery.html">Gallery</a>&nbsp;|&nbsp;<a href="contactus.html">Contact Us</a>&nbsp;|&nbsp;<a href="registration.html">Register</a></span>
+	</div>
+    <!--Ends Footer Container-->
+    	
+    <!--script loaded after the page is loaded-->
+    <script src="../js/slideshow1.js"></script>
+	
+</body>
+</html>

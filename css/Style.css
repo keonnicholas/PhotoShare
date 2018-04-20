@@ -1,0 +1,788 @@
+body {
+   margin:0 auto;
+   padding:0;
+   max-width:100%;
+   min-height:100%;
+}
+
+@font-face {
+    font-family:avenir;
+    src:url('../font/Avenir.ttc');
+}
+
+html { 
+    margin:0;
+    padding:0;
+	background-color: #e6e6e6;
+ }    
+/*sets container for main content*/
+#main-container{
+    width:1050px;
+	height: 100%;
+	margin:0 auto;
+	padding: 0;
+	font-family:avenir;
+	background-color: white;
+}
+
+/*banner css starts*/
+#top-banner-left{
+	background-color: #284765;
+	height: 140px;
+	width: 366px;
+	margin: 0;
+	float: left;
+}
+#top-banner-left2{
+	background-image: url(../images/border.png);
+	background-repeat: no-repeat;
+	background-size: 10px 140px;
+	height: 140px;
+	width: 10px;
+	margin: 0;
+	float: left;
+}
+#top-banner-middle{
+	background-color: #284765;
+	height: 140px;
+	width: 574px;
+	margin: 0;
+	float: left;
+}
+
+#top-banner-right{
+	background-color: #284765;
+	height: 140px;
+	border-left: .5px solid lightblue;
+	width: 99.5px;
+	margin: 0;
+	float: left;
+}
+
+
+#banner-left {
+		display: block;
+		float: left;
+        width:366px;
+        height:110px;
+        text-align:center;
+		margin: 0 auto;
+		}
+
+#logoImg {
+        height:100px;
+        width:auto;
+		margin: 5px auto;
+}
+#welcome-msg{
+	clear: both;
+	height: 40px;
+	width: 366px;
+	margin: 0 auto;
+	text-align: center;
+	color: #A7A9AC;
+	font-style: italic;
+	text-decoration: underline #B82925 solid;
+	font-size: 20px;
+	
+	
+}
+	/*;#B82925
+
+#welcome-msg-text{
+	height: 20px;
+	border-bottom: 2px solid #B82925;
+	margin: 0 auto;
+	width: 300px;
+}*/
+
+
+
+#banner-right {
+		display: block;
+		float: left;
+        width:574px;
+        height:110px;
+        text-align:center;
+		}
+
+#banner-far-right{
+		display: block;
+		float: left;
+        width:100px;
+        height:110px;
+        text-align:center;
+		margin: 0 auto;
+		}
+
+
+#bannerImg {
+   	height:0;
+	width: auto;
+}
+/*banner css ends*/
+
+#body {
+		clear:both;
+        width:100%;
+        height:auto;
+		background-color: white;
+}
+
+#body-text{
+		
+		text-align: center;
+		background-color: white;
+}
+
+/*topic headers css starts*/
+.topic{
+	width: 750px;
+	height: 80px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	
+	
+}
+.topic h1{
+	line-height: 80px;
+	height: 80px;
+	margin: 0 auto;
+	
+	
+}
+.left-topic, .right-topic{
+	height: 80px;
+	width: 150px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+}
+
+.topicimg{
+	height: 80px;
+	width: 150px;
+	margin: 0 auto;
+}
+
+.topic-heading{
+	line-height: 80px;
+}
+.topic-text{
+	font-size: 20px;
+	color: black;
+	font-family: avenir;
+	width: 750px;
+	margin: 0 auto;
+	
+}
+#profileinfo-container {
+  width: 640px;
+  position: relative;
+  height: 240px;
+  margin: 0 auto;
+  border-bottom: 2px solid #B82925;
+  font-family: avenir;
+  
+
+}
+#profilepic{	
+	height: 240px;
+	width: 320px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	
+}
+#profilepic-img{
+	
+	height: 150px;
+	width: 240px;
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.profilepic-img{
+	height: 150px;
+	width: 150px;
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	border-radius: 50%;
+	margin-top: 30px;
+	
+}
+#profileinfo{	
+	height: 240px;
+	width: 320px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	
+}
+#profileinfo-info{
+	height: 150px;
+	width: 320px;
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	margin-top: 40px;
+	
+}
+#profile-fullname{
+	font-weight:bold;
+}
+#profile-username{
+	font-size: 24px;
+}
+
+/*topic headers css ends*/
+
+/*thumbnail css starts*/
+.thumbnail{
+	height: 380px;
+	width: 375px;
+	display: block;
+	margin: 0 auto;
+	float: left;
+	
+}
+.imguploads{
+	clear: both;
+	height:340px;
+	width: 350px;
+	display:block;
+	margin: 0 auto;
+}
+.gallery-thumbnail{
+	height: 150px;
+	width: 160px;
+	display: block;
+	margin-top: 13px;
+	margin-left: 13px;
+	float: left;
+	cursor:pointer;
+}
+.profile-thumbnail{
+	height: 320px;
+	width: 320px;
+	display: block;
+	margin-top: 22.5px;
+	margin-left: 22.5px;
+	float: left;
+	cursor: pointer;
+}
+#gallery-thumbnail-col1{
+	height: 652px;
+	width: 173px;
+	display: block;
+	float: left;
+	cursor:pointer;
+	
+}
+.gallery-thumbnail-col2-5{
+	height: 639px;
+	width: 679px;
+	display: block;
+	margin-top: 13px;
+	margin-left: 13px;
+	
+	float: left;
+	cursor:pointer;
+}
+
+.gallery-img{
+	clear: both;
+	height: 150px;
+	width: 160px;
+	display: block;
+	margin: 0 auto;
+}
+.profile-img{
+	clear: both;
+	height: 320px;
+	width: 320px;
+	display: block;
+	margin: 0 auto;
+}
+.gallery-img-col2-5{
+	clear: both;
+	height: 639px;
+	width: 679px;
+	display: block;
+	margin: 0 auto;
+}
+/*thumbnail css ends*/
+
+/*contact and registration page css starts*/
+#contact-left, #contact-right{
+	display: block;
+	float: left;
+	width: 375px;
+	height: 400px;
+}
+
+#contact-left{
+	margin-left: 150px;
+	padding-top: 15px;
+}
+
+#contact-right{
+	margin: 0px 75px;
+}
+
+#err{
+	color: red;
+	font-weight: bolder;
+	margin: 180px auto;
+	text-align: center;
+
+}
+
+.contact-icon{
+	height: 18px;
+	width: auto;
+}
+#body-footer{
+	clear: both;
+	display: block;
+	width: 1050px;
+	height: 13px;
+}
+#reg-body-footer{
+	clear: both;
+	display: block;
+	width: 1050px;
+	height: 130px;
+}
+/*ensures text area cannot be resized*/
+.text-area{
+	resize:none;
+}
+
+.contactus-text{
+	text-align: left;
+	margin-top: 50px;
+	font-family: avenir;
+	font-size: 17px;
+	background-color: white;
+}
+#welcome{
+	padding-top: 130px;
+	
+}
+#reghead-container {
+  max-width: 1050px;
+  position: relative;
+  height: 180px;
+  margin: 0 auto;
+
+}
+#reghead{
+	width: 740px;
+	height: 180px;
+	margin: 0 auto;
+	padding-top: 60px;
+	text-align: center;
+}
+/*contact and registration page css ends*/
+
+
+
+
+.body {
+    border-bottom:2px solid #B82925;
+}
+
+/*thank you and response page*/
+.para {
+    color:#58595B;
+	font-size:12px; 
+	text-align:center;
+}
+
+
+/*all pages footer*/
+#footer {
+		clear: both;
+        width:1050px;
+        height:50px;
+		line-height: 50px;
+        font-size:11px;
+        
+        border-top: 2px solid #B82925;
+		margin:0 auto;
+		padding: 0;
+        font-family:avenir;
+		background-color: white;
+		
+}
+#footer-text-left{
+	display: block;
+	float: left;
+	text-align: left;
+	margin-left: 30px;
+	width: 495px;
+}
+#footer-text-right{
+	display: block;
+	float: right;
+	text-align: right;
+	margin-right: 30px;
+	width: 495px;
+}
+#footer-text-right a:visited, #footer-text-right a:link{
+	color: black;
+}
+#footer-text-right a{
+	text-decoration: none;
+}
+/*all pages footer ends*/
+
+ /*Navigation*/
+ #nav-options {
+		display: block;
+        float:left;
+        position:relative;
+        width:534px;
+        height:30px;
+		text-align:center;
+		padding: 0;
+		margin: 0;
+		}
+ 
+#nav-options .active{
+	background-color: #A7A9AC; 
+	color:white;
+}
+
+#search-link{
+		display: block;
+        float:left;
+        position:relative;
+        width:40px;
+        height:30px;
+		text-align:center;
+		padding: 0;
+		margin: 0 auto;
+		background-image: url(../images/searchblue.png);
+		background-repeat: no-repeat;
+		background-size: 30px 25px;
+		cursor: pointer;
+	
+}
+
+
+#nav-login{
+	display: block;
+	float: left;
+	position: relative;
+	width: 99.5px;
+	height: 30px;
+	border-left: .5px solid lightblue;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-img{
+	height: 15px;
+}
+ 
+#linkContent {
+    width:100%;
+    height:100%;
+    background-color:blue;
+}
+
+.navlinks {
+    color:#A7A9AC;
+    text-decoration:none;
+	font-size:17px;
+    height:30px;
+	line-height: 30px;
+    display: block;
+    -webkit-transition: ease .4s;
+    transition: ease .4s;
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 100px;
+
+}
+
+
+.navlinks:hover {
+    color:white;
+    background-color:#A7A9AC;
+   
+}
+
+ #search-link:hover{
+	 width: 40px;
+	 height: 30px;
+	 background-image: url(../images/searchwhite.png);
+	 background-repeat: no-repeat;
+	 background-size: 30px 25px;
+	 
+ }
+
+.t, #login{
+    float:left;
+    /*position:relative;
+    /*height:25px;*/
+	height: 30px;
+    width:100px;
+	list-style-type: none;
+	
+}
+#login{
+	cursor: pointer;
+}
+
+
+
+/* Slideshow container */
+.mySlides {
+	display:none
+	}
+#slideshow-row{
+	clear: both;
+	height: 570px;
+	
+}
+#slideshow-container {
+	clear: both;
+  max-width: 1050px;
+  position: relative;
+  height: 570px;
+  margin: 0 auto;
+
+}
+
+.slideshow-container {
+  max-width: 1050px;
+  position: relative;
+  height: 366px;
+  margin: 0 auto;
+
+}
+
+.slideImgUploads{
+	width: 100%;
+	height: 570px;
+}
+.slideImg{
+    width:100%;
+	height: 366px;
+    
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 3px 3px 3px;
+}
+/* Position the "previous button" to the left */
+.prev{
+	left: 0;
+	border-radius: 3px 3px 3px 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 20px;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  margin:0 auto;
+  
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  
+}
+#search-container{
+	position: absolute;
+	top: 0;
+	background-color: #A7A9AC;
+	opacity: .7;
+	right: 100px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	width: 580px;
+	height: 80px;
+	text-align: center;
+	display: none;
+}
+#search-container form{
+	margin: 10px 22px;
+}
+#search{
+	display: block;
+	width: 440px;
+	height: 25px;
+	float: left;
+	margin: 0 auto;
+}
+#searchbtn{
+	
+	margin-left: 5px;
+	width: 80px;
+	font-size: 17px;
+	height: 35px;
+	background-color: #284765;
+	border-color: #7D7D45;
+	border-radius: 5px;
+	float: left;
+}
+
+
+#login-form-container{
+	position: absolute;
+	top: 0;
+	background-color: #A7A9AC;
+	opacity: .7;
+	right: 0;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	width: 250px;
+	height: 250px;
+	text-align: center;
+	display: none;
+}
+
+#login-form-container form{
+	margin: 10px 22px;
+}
+
+#username, #password{
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	height: 25px;
+}
+.login_button{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	font-size: 17px;
+	height: 35px;
+	background-color: #7D7D45;
+	border-color: #284765;
+	border-radius: 5px;
+	cursor: pointer;
+	line-height: 35px;
+}
+#registerbtn{
+	background-color: #284765;
+	line-height: 35px;
+}
+#reglink:visited{
+	color: black;
+	
+}
+#reglink1:visited{
+	color:black;
+}
+#reglink, #reglink1{
+	text-decoration: none;
+	color: black;
+}
+#login-form-container a{
+	text-decoration: none;
+	color: black;
+}
+
+/* The dots/bullets/indicators */
+.dot1 {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 auto;
+  background-color: #eee;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  bottom: 10px;
+  position:relative;
+}
+#dots{
+	margin-top: 10px;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+/*Modal code learned from https://www.w3schools.com/howto/howto_css_modals.asp*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+	text-align: center;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+    
+    

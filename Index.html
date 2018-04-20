@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoShare</title>
+    <link rel="stylesheet" type="text/css" href="css/Style.css" />
+	<meta charset="UTF-8">
+	 
+</head>
+    
+<body onload="RUN()" onclick="hideme()">
+    
+	<div id="main-container">
+		
+		<!--Banner container for logo-->
+		<div id="top-banner-left">
+			<div id="banner-left">
+				<a href="index.html"><img id="logoImg" src="images/logo2.png" alt="logo"/></a>
+			</div>
+		</div>
+		<!--Ends logo container-->
+		
+		<!--Banner contains red double horizontal lines-->
+		<div id="top-banner-left2"></div>
+		<!--Ends red horizontal lines container-->
+		
+		<!--Banner container for navigation bar-->
+		<div id="top-banner-middle">
+			<div id="banner-right"></div>
+			<ul id="nav-options">
+				<li class="t"><a class="navlinks active" href="index.html" >Home</a></li>
+				<li class="t"><a class="navlinks" href="xhtml/gallery.html">Gallery</a></li>
+				<li class="t"><a class="navlinks" href="xhtml/contactus.html">Contact Us</a></li>
+			</ul>
+			<div id="search-link" onclick="search_form()"></div>
+		</div>
+		<!--Ends navigation bar container-->
+		
+		<!--Banner container for login link-->		
+		<div id="top-banner-right">
+			<div id="banner-far-right" ></div>
+			
+			<ul id="nav-login">
+				<li id="login" onclick="loginform()"><a class="navlinks" onclick="loginform()"><img src="images/lock.png" alt="Login" class="nav-img" />&nbsp;Login</a></li>
+			</ul>
+		    
+			
+		</div>
+        <!--Ends login container-->
+        
+					
+		<!--Container for page content-->
+        <div id="body">
+			<!--Slideshow container-->
+            <div class="slideshow-container">
+			
+				<div id="login-form-container" onmouseenter="opacityplus()" onclick="formfocus()">
+					<form method="POST" id="Logon" name="Logon" onsubmit="return validateLogin()">
+						<input type="text" placeholder="Username" name="username" id="username" size="25" maxlength="20" class="username"/><br />
+						<input type="password" placeholder="Password" name="password" id="password" size="25" maxlength="12" class="password" /><br />
+						<button class="login_button" type="submit" title=" " id="loginbtn">Log On</button><br />
+						<a href="xhtml/registration.php" id="reglink"><span class="login_button" id="registerbtn">Register</span></a>
+					</form>
+					<p class="forgot-sign-in"> <a href="#" class="forgot-id">Forgot ID&nbsp;|&nbsp;Password</a></p>
+              	</div>
+				
+				<div id="search-container" onmouseenter="opacityplus()" onclick="formfocus()">
+					<form method="POST" id="searchform" name="searchform">
+						<input type="text" placeholder="How can we help you?" name="search" id="search" size="25" maxlength="20" class="username"/>&nbsp;
+						<button type="button" title=" " id="searchbtn">Search</button>
+					</form>
+				</div>
+					
+					
+                <div class="mySlides fade1">
+                    <div class="numbertext">1 / 4</div>
+                    <img class="slideImg" src="images/photos/columbusbay.jpg" alt="Columbus Bay" />
+                    <div class="text">Columbus Bay - South Trinidad</div>
+                </div>
+    
+				<div class="mySlides fade1">
+					<div class="numbertext">2 / 4</div>
+					<img class="slideImg" src="images/photos/grandcanyon.jpg" alt="Grand Canyon" />
+					<div class="text">Grand Canyon - Arizona, USA</div>
+				</div>
+    
+				<div class="mySlides fade1">
+					<div class="numbertext">3 / 4</div>
+					<img class="slideImg" src="images/photos/pigeonpoint.jpg" alt="Pigeon Point" />
+					<div class="text">Pigeon Point - Tobago</div>
+				</div>
+					
+				<div class="mySlides fade1">
+					<div class="numbertext">4 / 4</div>
+					<img class="slideImg" src="images/photos/mtfuji.jpg" alt="Mt. Fuji" />
+					<div class="text">Mt. Fuji - Japan</div>
+				</div>
+            </div>
+			<!--Ends Slide Container-->
+			<!--Modal code learned from https://www.w3schools.com/howto/howto_css_modals.asp*/-->
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close" onclick="closemodal()">&times;</span>
+					<p id="login_err"></p>
+				</div>
+			</div>
+			<!--Body text container-->
+			<div id="body-text">
+				<h3>"Photography takes an instant out of time, altering life by holding it still."</h3>
+				<cite>- Dorothea Lange</cite>
+				
+				<div class="topic-container">
+					<div class="left-topic"><img src="images/lefttopic.png" alt="banner" class="topicimg" /></div>
+					<div class="topic"><h1 class="topic-heading">About Us</h1></div>
+					<div class="right-topic"><img src="images/righttopic.png" alt="banner" class="topicimg" /></div>
+				</div>
+				<!--Ends About Us Topic-->
+				<div class="topic-text">
+					<p>We are a company planing on taking photography to the next level. Not just for viewing purposes but to push the limits of the way you see the world through your eyes. We provide a platform for all photographers alike to share their art to the world. Our mission is to be the leading source where your views and our expertise goes hand in hand. A chance to let your voice be heard and where your opinion matters. We want you to feel a sense of comfort whenever you engage with our website as we work forward to bringing photography to the forefront. </p>
+					<br />
+					<a href="xhtml/registration.php" id="reglink1"><span class="login_button" >Join Today For Free!</span></a>
+				</div>
+				<!--End of About Us Text-->
+				
+				
+				<div class="topic-container">
+					<div class="left-topic"><img src="images/lefttopic.png" alt="banner" class="topicimg" /></div>
+					<div class="topic"><h1 class="topic-heading">Recent Uploads</h1></div>
+					<div class="right-topic"><img src="images/righttopic.png" alt="banner" class="topicimg" /></div>
+				</div>
+				<!--Ends Recent Uploads Topic-->
+				<div class="topic-text">
+					<div id="slideshow-container">
+						<div class="mySlides1 fade">
+							<div class="numbertext">1 / 4</div>
+							<img class="slideImgUploads" src="images/uploads/gyuire.jpg" alt="Sea shells on the beach" />
+						</div>
+
+						<div class="mySlides1 fade">
+							<div class="numbertext">2 / 4</div>
+							<img class="slideImgUploads" src="images/uploads/lonetree.jpg" alt="A lone tree" />
+						</div>
+
+						<div class="mySlides1 fade">
+							<div class="numbertext">3 / 4</div>
+							<img class="slideImgUploads" src="images/uploads/maracaslookout.jpg" alt="Maracas Bay lookout" />
+						</div>
+					
+						<div class="mySlides1 fade">
+							<div class="numbertext">4 / 4</div>
+							<img class="slideImgUploads" src="images/uploads/nylonpool.jpg" alt="Nylon Pool" />
+						</div>
+
+						<a id = "nxt1" class="prev" onclick="NavSlides(-1)">&#10094;</a>
+						<a id = "prev1" class="next" onclick="NavSlides(1)">&#10095;</a>
+					</div>
+				
+					<div id="dots">
+						<span class="dot1" onclick="NavDots(0)"></span> 
+						<span class="dot1" onclick="NavDots(1)"></span> 
+						<span class="dot1" onclick="NavDots(2)"></span> 
+						<span class="dot1" onclick="NavDots(3)"></span> 
+					</div>
+		
+				
+				
+				</div>
+				<!--Ends Latest Uploads Text-->
+				
+			</div>
+			<!--Ends Body Text Container-->
+		</div>
+		<!--Ends page content container-->             
+        
+		
+        
+        
+    </div>
+	<!--Ends Main Container-->
+	<!--Footer Container-->
+    <div id="footer">
+        <span id="footer-text-left">Copyright &#169; 2018 PhotoShare Inc. All rights reserved.</span><span id="footer-text-right"><a href="index.html">Home</a>&nbsp;|&nbsp;<a href="xhtml/gallery.html">Gallery</a>&nbsp;|&nbsp;<a href="xhtml/contactus.html">Contact Us</a>&nbsp;|&nbsp;<a href="xhtml/registration.php">Register</a></span>
+	</div>
+    <!--Ends Footer Container-->
+    	
+    <!--script loaded after the page is loaded-->
+    <script src="js/slideshow1.js"></script>
+	
+</body>
+</html>
